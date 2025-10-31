@@ -1,0 +1,21 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  docker-build:
+    uses: defyjoy/github-reusable-workflows@main
+    with:
+      image_name: 'demo-flask-app'
+      context: '.'
+      push: 'false'
+    # secrets:
+      # registry_username: ${{ secrets.REGISTRY_USERNAME }}
+      # registry_password: ${{ secrets.REGISTRY_PASSWORD }}
